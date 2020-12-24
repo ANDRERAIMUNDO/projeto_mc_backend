@@ -2,23 +2,49 @@ package com.andre.mc.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+
+
 public class ClienteNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@NotEmpty(message ="Nome é campo obrigatorio. ")
+	@Size(min = 20, max = 100, message="Nome entre 20 e 100 caracter. ")
 	private String nome;
+	
+	@NotEmpty(message="Email é campo obrigatorio. ")
+	@Email(message = "Email em formato invalido. ")
 	private String email;
+	
+	@NotEmpty(message ="Campo obrigatorio. ")
 	private String cpfOuCnpj;
+	
+
 	private Integer tipo;
 	
-	private String logradouro;
-	private String numero;
-	private String complemento;
-	private String bairro;
-	private String cep;
-	
+	@NotEmpty(message ="Telefone é campo obrigatorio. ")
 	private String telefone1;
+	
 	private String telefone2;
+	
 	private String telefone3;
+	
+	@NotEmpty(message ="Logradouro é campo obrigatorio. ")
+	private String logradouro;
+	
+	@NotEmpty(message ="Número é campo obrigatorio. ")
+	private String numero;
+	
+	private String complemento;
+	
+	@NotEmpty(message ="Bairro é campo obrigatorio. ")
+	private String bairro;
+	
+	@NotEmpty(message ="Cep é campo obrigatorio. ")
+	private String cep;
 	
 	private Integer cidadeId;
 	
