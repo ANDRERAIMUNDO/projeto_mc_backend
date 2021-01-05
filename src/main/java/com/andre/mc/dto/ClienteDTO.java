@@ -13,7 +13,7 @@ public class ClienteDTO implements Serializable {
 	
 	private Integer id;
 	@NotEmpty(message ="Nome é campo obrigatorio. ")
-	@Size(min = 20, max = 100, message="Nome entre 20 e 100 caracter. ")
+	@Size(min = 10, max = 100, message="Nome entre 10 e 100 caracter. ")
 	private String nome;
 	@NotEmpty(message="Email é campo obrigatorio. ")
 	@Email(message = "Email em formato invalido. ")
