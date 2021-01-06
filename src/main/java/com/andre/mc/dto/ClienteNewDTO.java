@@ -21,6 +21,9 @@ public class ClienteNewDTO implements Serializable {
 	@Email(message = "Email em formato invalido. ")
 	private String email;
 	
+	@NotEmpty(message="Você esqueceu de criar uma senha. ")
+	private String senha;
+	
 	@NotEmpty(message ="Campo obrigatorio. ")
 	private String cpfOuCnpj;
 	
@@ -68,6 +71,14 @@ public class ClienteNewDTO implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getCpfOuCnpj() {
