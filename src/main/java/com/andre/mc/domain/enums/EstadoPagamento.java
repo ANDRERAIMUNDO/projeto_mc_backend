@@ -1,4 +1,4 @@
-package com.andre.mc.domain.enums;
+	package com.andre.mc.domain.enums;
 
 public enum EstadoPagamento {
 	PENDENTE(1, "Pendente"),

@@ -21,6 +21,7 @@ public class DevConfig {
 	
 	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private String strategy;
+	
 	@Bean
 	public boolean instantianteDatebase() throws ParseException {
 		if (!"create".equals(strategy)){
