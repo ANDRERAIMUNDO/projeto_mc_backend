@@ -11,10 +11,10 @@ public enum Perfil {
 		this.cod = cod;
 		this.descricao = descricao;
 	}
-	public int getcod() {
+	public int getCod() {
 		return cod;
 	}
-	public String getdescricao() {
+	public String getDescricao() {
 		return descricao;
 	}
 	public static Perfil toEnum (Integer cod) {
@@ -22,7 +22,7 @@ public enum Perfil {
 			return null;
 		}
 		for (Perfil x : Perfil.values()) {
-			if(cod.equals(x.getcod())) {
+			if(cod.equals(x.getCod())) {
 				return x;
 			}
 		}

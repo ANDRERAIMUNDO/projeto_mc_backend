@@ -126,7 +126,7 @@ public class Cliente implements Serializable{
 	}
 	
 	public void addPerfil (Perfil perfil) {
-		perfis.add(perfil.getcod());
+		perfis.add(perfil.getCod());
 	}
 	
 	public List<Endereco> getEnderecos() {
