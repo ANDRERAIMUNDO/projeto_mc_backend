@@ -49,6 +49,9 @@ public class ClienteService {
 	@Value("${img.prefix.client.profile}")
 	private String prefix;
 	
+	@Value("${img.profile.size}")
+	private Integer size;
+	
 	@Autowired
 	private ImageService imageService; 
 	
@@ -135,10 +138,13 @@ public class ClienteService {
 			throw new AuthorizationException("Acesso negado");
 		}
 		
-		BufferedImage JpgImage = imageService.getJpgImageFromFile(multipartFile);
+		BufferedImage jpgImage = imageService.getJpgImageFromFile(multipartFile);
+		jpgImage = imageService.cropSquare(jpgImage);
+		jpgImage = imageService.resize(jpgImage, size);
+		
 		String fileName = prefix + user.getId() + ".jpg";
 		
-		return s3Service.uploadFile(imageService.getInputStream(JpgImage, "jpg"), fileName, "iamge");
+		return s3Service.uploadFile(imageService.getInputStream(jpgImage, "jpg"), fileName, "iamge");
 	}
 }
 
