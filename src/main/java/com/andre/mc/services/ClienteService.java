@@ -93,7 +93,7 @@ public class ClienteService {
 	
 	public Cliente findByEmail (String email) {
 		UserSS user = UserService.authenticated();
-		if (user==null || user.hasRole(Perfil.ADMIN) && !email.equals(user.getUsername())) {
+		if (user==null || !user.hasRole(Perfil.ADMIN) && !email.equals(user.getUsername())) {
 			throw new AuthorizationException("Acesso negado! ");
 		}
 		Cliente obj = repo.findByEmail(email);
@@ -158,7 +158,7 @@ public class ClienteService {
 		
 		String fileName = prefix + user.getId() + ".jpg";
 		
-		return s3Service.uploadFile(imageService.getInputStream(jpgImage, "jpg"), fileName, "iamge");
+		return s3Service.uploadFile(imageService.getInputStream(jpgImage, "jpg"), fileName, "image");
 	}
 }
 
